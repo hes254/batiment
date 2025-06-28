@@ -1,0 +1,634 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="description" content="Batiment Construction Company delivers high-quality building and infrastructure projects in Nairobi, Kenya.">
+  <meta name="keywords" content="construction, building, infrastructure, Nairobi, Kenya, Batiment">
+  <link rel="icon" href="https://via.placeholder.com/32" type="image/x-icon">
+  <title>Batiment Construction Company</title>
+  <style>
+    body {
+      font-family: 'Segoe UI', sans-serif;
+      margin: 0;
+      background-color: #f4f4f4;
+      color: #333;
+      scroll-behavior: smooth;
+    }
+
+    header {
+      background-color: #2e3a59;
+      color: white;
+      text-align: center;
+      padding: 40px 20px;
+    }
+
+    header h1 {
+      margin: 0;
+      font-size: 2em;
+    }
+
+    header p {
+      margin: 10px 0 0;
+      font-size: 1.1em;
+    }
+
+    nav {
+      background-color: #1f2a44;
+      text-align: center;
+      padding: 10px 0;
+      position: sticky;
+      top: 0;
+      z-index: 100;
+    }
+
+    nav a {
+      color: white;
+      margin: 0 15px;
+      text-decoration: none;
+      font-weight: bold;
+      transition: color 0.3s;
+    }
+
+    nav a:hover {
+      color: #ffd700;
+    }
+
+    section {
+      max-width: 1000px;
+      margin: auto;
+      padding: 40px 20px;
+      background-color: white;
+      margin-bottom: 20px;
+      border-radius: 10px;
+      box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+    }
+
+    h2 {
+      color: #2e3a59;
+      text-align: center;
+      font-size: 1.8em;
+      margin-bottom: 20px;
+    }
+
+    .category-heading {
+      color: #2e3a59;
+      font-size: 1.5em;
+      margin: 30px 0 10px;
+      text-align: left;
+    }
+
+    .category-description {
+      font-size: 1em;
+      margin-bottom: 20px;
+      color: #555;
+    }
+
+    .gallery {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 20px;
+      justify-content: center;
+      margin-top: 20px;
+    }
+
+    .gallery a {
+      position: relative;
+      overflow: hidden;
+      border-radius: 8px;
+    }
+
+    .gallery img, .gallery-video {
+      width: 300px;
+      height: 200px;
+      object-fit: cover;
+      border-radius: 8px;
+      box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+      transition: transform 0.3s;
+    }
+
+    .gallery a:hover img, .gallery a:hover .gallery-video {
+      transform: scale(1.05);
+    }
+
+    .gallery a::after {
+      content: attr(data-title);
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      width: 100%;
+      padding: 10px;
+      background: rgba(0,0,0,0.7);
+      color: white;
+      text-align: center;
+      opacity: 0;
+      transition: opacity 0.3s;
+    }
+
+    .gallery a:hover::after {
+      opacity: 1;
+    }
+
+    .team {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 30px;
+      margin-top: 30px;
+    }
+
+    .member {
+      text-align: center;
+      width: 200px;
+    }
+
+    .member img {
+      width: 150px;
+      height: 150px;
+      border-radius: 50%;
+      object-fit: cover;
+      box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+      margin-bottom: 10px;
+    }
+
+    .member h3 {
+      margin: 10px 0 5px;
+      font-size: 1.2em;
+    }
+
+    .member p {
+      margin: 0;
+      font-style: italic;
+      color: #555;
+    }
+
+    .member p.bio {
+      font-style: normal;
+      font-size: 0.9em;
+      margin-top: 5px;
+    }
+
+    .contact form {
+      display: flex;
+      flex-direction: column;
+      max-width: 500px;
+      margin: 0 auto 20px;
+      gap: 15px;
+    }
+
+    .contact label {
+      font-weight: bold;
+      color: #2e3a59;
+    }
+
+    .contact input, .contact textarea {
+      padding: 10px;
+      border: 1px solid #ccc;
+      border-radius: 5px;
+      font-size: 1em;
+      width: 100%;
+    }
+
+    .contact textarea {
+      height: 120px;
+      resize: vertical;
+    }
+
+    .contact button {
+      background-color: #2e3a59;
+      color: white;
+      padding: 10px;
+      border: none;
+      border-radius: 5px;
+      cursor: pointer;
+      transition: background-color 0.3s;
+    }
+
+    .contact button:hover {
+      background-color: #ffd700;
+      color: #2e3a59;
+    }
+
+    .contact p {
+      text-align: center;
+      margin: 10px 0;
+    }
+
+    .contact a {
+      color: #2e3a59;
+      text-decoration: none;
+      font-weight: bold;
+    }
+
+    .contact a:hover {
+      color: #ffd700;
+    }
+
+    .home-button {
+      display: block;
+      text-align: center;
+      margin-top: 20px;
+    }
+
+    .home-button a {
+      background-color: #2e3a59;
+      color: white;
+      padding: 12px 30px;
+      border-radius: 5px;
+      border: 2px solid #ffd700;
+      text-decoration: none;
+      font-weight: bold;
+      font-size: 1.1em;
+      transition: background-color 0.3s, color 0.3s, transform 0.3s;
+      display: inline-block;
+    }
+
+    .home-button a:hover {
+      background-color: #ffd700;
+      color: #2e3a59;
+      transform: scale(1.05);
+    }
+
+    /* Help Bot Styles */
+    .chatbot-button {
+      position: fixed;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      background-color: #2e3a59;
+      color: white;
+      width: 60px;
+      height: 60px;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      cursor: pointer;
+      box-shadow: 0 2px 5px rgba(0,0,0,0.3);
+      z-index: 200;
+      transition: background-color 0.3s;
+    }
+
+    .chatbot-button:hover {
+      background-color: #ffd700;
+      color: #2e3a59;
+    }
+
+    .chatbot-window {
+      position: fixed;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -40%);
+      width: 300px;
+      height: 400px;
+      background-color: white;
+      border-radius: 10px;
+      box-shadow: 0 4px 10px rgba(0,0,0,0.2);
+      display: none;
+      flex-direction: column;
+      z-index: 200;
+    }
+
+    .chatbot-header {
+      background-color: #2e3a59;
+      color: white;
+      padding: 10px;
+      border-radius: 10px 10px 0 0;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+
+    .chatbot-header h3 {
+      margin: 0;
+      font-size: 1.2em;
+    }
+
+    .chatbot-close {
+      cursor: pointer;
+      font-size: 1.2em;
+    }
+
+    .chatbot-messages {
+      flex-grow: 1;
+      padding: 10px;
+      overflow-y: auto;
+      border-bottom: 1px solid #ccc;
+    }
+
+    .chatbot-message {
+      margin: 10px 0;
+      padding: 8px 12px;
+      border-radius: 5px;
+      max-width: 80%;
+    }
+
+    .chatbot-message.bot {
+      background-color: #2e3a59;
+      color: white;
+      margin-left: auto;
+    }
+
+    .chatbot-message.user {
+      background-color: #f4f4f4;
+      color: #333;
+      margin-right: auto;
+    }
+
+    .chatbot-input {
+      display: flex;
+      padding: 10px;
+    }
+
+    .chatbot-input input {
+      flex-grow: 1;
+      padding: 8px;
+      border: 1px solid #ccc;
+      border-radius: 5px 0 0 5px;
+      font-size: 0.9em;
+    }
+
+    .chatbot-input button {
+      background-color: #2e3a59;
+      color: white;
+      border: none;
+      padding: 8px 12px;
+      border-radius: 0 5px 5px 0;
+      cursor: pointer;
+      transition: background-color 0.3s;
+    }
+
+    .chatbot-input button:hover {
+      background-color: #ffd700;
+      color: #2e3a59;
+    }
+
+    footer {
+      background-color: #2e3a59;
+      color: white;
+      text-align: center;
+      padding: 20px;
+      font-size: 0.9em;
+    }
+
+    @media (max-width: 768px) {
+      header h1 {
+        font-size: 1.8em;
+      }
+
+      nav a {
+        margin: 0 10px;
+        font-size: 0.9em;
+      }
+
+      .gallery img, .gallery-video {
+        width: 100%;
+        max-width: 300px;
+        height: auto;
+      }
+
+      .member {
+        width: 100%;
+        max-width: 200px;
+      }
+
+      .contact form {
+        max-width: 90%;
+      }
+
+      .chatbot-window {
+        width: 90%;
+        max-width: 300px;
+      }
+
+      .home-button a {
+        padding: 10px 20px;
+        font-size: 1em;
+      }
+    }
+
+    @media (max-width: 480px) {
+      header {
+        padding: 30px 10px;
+      }
+
+      .gallery {
+        flex-direction: column;
+        align-items: center;
+      }
+
+      .team {
+        flex-direction: column;
+        align-items: center;
+      }
+
+      .category-heading {
+        font-size: 1.3em;
+      }
+    }
+  </style>
+</head>
+<body id="top" role="main">
+
+  <header role="banner">
+    <h1>Batiment Construction Company</h1>
+    <p>Excellence in Building & Infrastructure | Est. by Hesbon</p>
+  </header>
+
+  <nav role="navigation">
+    <a href="#home">Home</a>
+    <a href="#projects">Projects</a>
+    <a href="#team">Our Team</a>
+    <a href="#contact">Contact</a>
+  </nav>
+
+  <section id="home" role="region" aria-labelledby="home-heading">
+    <h2 id="home-heading">About Us</h2>
+    <p><h3>Vision</h3><br/>
+"To be the leading construction company in East Africa, recognized for quality, innovation, and integrity in building sustainable infrastructure that transforms lives and communities."</p>
+    <p><h3>Mission</h3><br/>To deliver superior construction services with a commitment to safety, excellence, and client satisfaction by leveraging skilled professionals, modern technology, and ethical business practices.</p>
+    <p><h3>Our services</h3><br/><ul><li>Interior Design</li>
+    <li>Residential Development</li><li>Civil Works</li><li>General Construction</li></ul></p>
+    <div class="home-button">
+      <a href="#projects">Click Here to See Our Work</a>
+    </div>
+  </section>
+
+  <section id="projects" role="region" aria-labelledby="projects-heading">
+    <h2 id="projects-heading">Our Projects</h2>
+    <p>Discover our portfolio of innovative and sustainable construction projects across Kenya, categorized by expertise.</p>
+
+    <h3 class="category-heading">Construction Work</h3>
+    <p class="category-description">Our general construction projects include commercial and industrial developments, showcasing robust engineering and quality craftsmanship.</p>
+    <div class="gallery">
+      <a href="imges/construction.mp4" data-title="Skyline Towers - Nairobi">
+        <img src="imges/construction.jpg" alt="Skyline Towers, a modern high-rise office building in Nairobi" loading="lazy">
+      </a>
+      
+    </div>
+
+    <h3 class="category-heading">Residential Buildings</h3>
+    <p class="category-description">We design and build modern, eco-friendly residential complexes and homes tailored to community needs.</p>
+    <div class="gallery">
+      <a href="imges/vid.mp4" data-title="pixel plaza">
+        <img src="imges/residential.jpg" alt="kingongo, eco-friendly housing complex" loading="lazy">
+      </a>
+  
+    </div>
+
+    <h3 class="category-heading">Civil Work</h3>
+    <p class="category-description">Our civil engineering projects include infrastructure like bridges, roads, and public facilities, built for durability and impact.</p>
+    <div class="gallery">
+      
+      </a>
+      <a href="imges/civil works.mp4" data-title="Nakuru ">
+        <img src="imges/civil works.jpg" alt="Nakuru, a major road infrastructure project" loading="lazy">
+      </a>
+    </div>
+
+    <h3 class="category-heading">Design and Interior Design</h3>
+    <p class="category-description">Our design team creates stunning interiors and architectural plans that blend aesthetics with functionality.</p>
+    <div class="gallery">
+      <a href="imges/deishh.mp4" data-title="Kiganjo apartments">
+        <img src="imges/designnn.jpg" alt=" Kiganjo apartments Interiors, a modern retail and entertainment center" loading="lazy">
+      </a>
+      
+    </div>
+
+    <h3 class="category-heading">Project Videos</h3>
+    <p class="category-description">Explore our video showcases, including timelapses and walkthroughs of our construction and design projects.</p>
+    <div class="gallery">
+      <a href="imges/vid.mp4" data-title="Construction Site Timelapse">
+        <video width="300" height="200" poster="https://images.pexels.com/videos/4773626/free-video-4773626.jpg?auto=compress&fit=crop&w=600" muted loop playsinline class="gallery-video" aria-label="Construction Site Timelapse">
+          <source src="https://player.vimeo.com/progressive_redirect/playback/4773626/rendition/360p" type="video/mp4">
+          Your browser does not support the video tag.
+        </video>
+      </a>
+      <a href="imges/WhatsApp Video 2025-06-28 at 16.38.28_8faad758.mp4" data-title="Interior Design Walkthrough">
+        <video width="300" height="200" poster="https://images.pexels.com/videos/3049121/free-video-3049121.jpg?auto=compress&fit=crop&w=600" muted loop playsinline class="gallery-video" aria-label="Interior Design Walkthrough">
+          <source src="https://player.vimeo.com/progressive_redirect/playback/3049121/rendition/360p" type="video/mp4">
+          Your browser does not support the video tag.
+        </video>
+      </a>
+    </div>
+  </section>
+
+  <section id="team" role="region" aria-labelledby="team-heading">
+    <h2 id="team-heading">Meet Our Leadership</h2>
+    <p>Our experienced leadership team drives Batiment’s commitment to quality and innovation.</p>
+    <div class="team">
+      <div class="member">
+        <img src="imges/fv.jpg" alt="Portrait of Hesbon Mutisya, CEO of Batiment Construction" loading="lazy">
+        <h3>Hesbon Mutisya</h3>
+        <p>Chief Executive Officer</p>
+        <p class="bio">Hesbon founded Batiment in 2022, bringing 20+ years of expertise to lead transformative construction projects.</p>
+      </div>
+      <div class="member">
+        <img src="imges/the.jpg" alt="Portrait of Stanley Mwangi, COO of Batiment Construction" loading="lazy">
+        <h3>Stanley Mwangi</h3>
+        <p>Chief Operations Officer</p>
+        <p class="bio">Stanley ensures seamless project execution with a focus on efficiency and quality control.</p>
+      </div>
+      <div class="member">
+        <img src="imges/gf.jpg" alt="Portrait of IAN GIKUNJU, CFO of Batiment Construction" loading="lazy">
+        <h3>IAN GIKUNJU</h3>
+        <p>Chief Financial Officer</p>
+        <p class="bio">David oversees financial strategy, ensuring sustainable growth for Batiment.</p>
+      </div>
+    </div> 
+  </section>
+
+  <section id="contact" class="contact" role="region" aria-labelledby="contact-heading">
+    <h2 id="contact-heading">Contact Us</h2>
+    <p>Get in touch to discuss your construction needs or inquire about our services.</p>
+    <form action="/submit" method="POST">
+      <label for="name">Name:</label>
+      <input type="text" id="name" name="name" required aria-required="true">
+      <label for="email">Email:</label>
+      <input type="email" id="email" name="email" required aria-required="true">
+      <label for="message">Message:</label>
+      <textarea id="message" name="message" required aria-required="true"></textarea>
+      <button type="submit">Send Message</button>
+    </form>
+    <p><strong>Email:</strong> <a href="hesbonprime@gmail.com">hesbonprime@gmail.com</a></p>
+    <p><strong>Phone:</strong> <a href="tel:+254113549847">+254113549847</a></p>
+    <p><strong>Location:</strong> call for direction, Nakuru, Kenya</p>
+  </section>
+
+  <!-- Help Bot -->
+  <div class="chatbot-button" onclick="toggleChatbot()" aria-label="Open help chatbot">
+    💬
+  </div>
+  <div class="chatbot-window" id="chatbotWindow">
+    <div class="chatbot-header">
+      <h3>Batiment Help Bot</h3>
+      <span class="chatbot-close" onclick="toggleChatbot()" aria-label="Close chatbot">✕</span>
+    </div>
+    <div class="chatbot-messages" id="chatbotMessages">
+      <div class="chatbot-message bot">Hello! Welcome to Batiment Construction. How can I assist you today?</div>
+    </div>
+    <div class="chatbot-input">
+      <input type="text" id="chatbotInput" placeholder="Type your question..." aria-label="Type your question">
+      <button onclick="sendMessage()">Send</button>
+    </div>
+  </div>
+
+  <footer role="contentinfo">
+    <p>© <span id="year"></span> Batiment Construction Company | Built by Vision, Led by Integrity</p>
+  </footer>
+
+  <script>
+    // Dynamic copyright year
+    document.getElementById("year").textContent = new Date().getFullYear();
+
+    // Chatbot functionality
+    function toggleChatbot() {
+      const chatbotWindow = document.getElementById("chatbotWindow");
+      chatbotWindow.style.display = chatbotWindow.style.display === "flex" ? "none" : "flex";
+    }
+
+    function sendMessage() {
+      const input = document.getElementById("chatbotInput");
+      const messages = document.getElementById("chatbotMessages");
+      const message = input.value.trim().toLowerCase();
+
+      if (message) {
+        // Add user message
+        const userMessage = document.createElement("div");
+        userMessage.className = "chatbot-message user";
+        userMessage.textContent = message;
+        messages.appendChild(userMessage);
+
+        // Bot responses based on keywords
+        let botResponse = "Sorry, I didn't understand that. Try asking about our services, projects, or contact info!";
+        if (message.includes("service") || message.includes("what do you do")) {
+          botResponse = "We specialize in building and infrastructure projects, including residential, commercial, and public works in Kenya.";
+        } else if (message.includes("project") || message.includes("work")) {
+          botResponse = "Check out our Projects section to see our portfolio, including Skyline Towers and Nairobi Expressway Bridge!";
+        } else if (message.includes("contact") || message.includes("reach")) {
+          botResponse = "You can reach us at info@batimentconstruct.co.ke or call +254 712 345 678. Visit our Contact section for more details.";
+        } else if (message.includes("about") || message.includes("who are you")) {
+          botResponse = "Batiment Construction, founded in 2022, is a Nairobi-based firm focused on innovative and sustainable construction.";
+        }
+
+        // Add bot response
+        const botMessage = document.createElement("div");
+        botMessage.className = "chatbot-message bot";
+        botMessage.textContent = botResponse;
+        messages.appendChild(botMessage);
+
+        // Scroll to bottom
+        messages.scrollTop = messages.scrollHeight;
+        input.value = "";
+      }
+    }
+
+    // Send message on Enter key
+    document.getElementById("chatbotInput").addEventListener("keypress", function (event) {
+      if (event.key === "Enter") {
+        sendMessage();
+      }
+    });
+  </script>
+</body>
+</html>
